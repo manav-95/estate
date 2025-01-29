@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+
 import { NavLink } from 'react-router-dom'
+
+import { RiMenuFill, RiCloseFill } from "react-icons/ri";
+
 import Building1 from '../assets/category-images/building-1.jpg'
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
   const navItems = [
     { name: 'Home', path: '/', },
     {
       name: 'Our Projects',
+      path: '/our-projects',
       type: 'dropdown',
-
     },
     { name: 'Redevelop with us', path: '/redevelope-with-us', },
     { name: 'Corporate Governance', path: '/corporate-governance', },
@@ -58,16 +63,46 @@ const Navbar = () => {
   ]
   return (
     <>
-      <div className='w-full bg-[#333333] text-white shadow-lg fixed left-0 top-0 z-50 px-6 poppins-regular'>
+      <div className='w-full bg-[#333333] text-white shadow-lg fixed left-0 top-0 z-50 px-4 poppins-regular'>
         <div className='flex items-center justify-between py-6'>
 
           {/* Logo section  */}
-          <div className='flex items-center space-x-2'>
-            <h1 className='text-4xl uppercase font-semibold'>Amar</h1>
-            <h1 className='text-4xl uppercase font-semibold text-[#00d8ff]'>Constructions</h1>
+          <div className='flex flex-col min-[425px]:flex-row items-start justify-start space-x-2'>
+            <h1 className='text-2xl min-[425px]:text-2xl sm:text-3xl lg:text-2xl xl:text-4xl uppercase font-semibold'>Amar</h1>
+            <h1 className='text-2xl min-[425px]:text-2xl sm:text-3xl lg:text-2xl xl:text-4xl uppercase font-semibold text-[#00d8ff]'>Constructions</h1>
           </div>
 
-          {/* Links Section */}
+          {/* Links For Small Screens */}
+          {/* Mobile Menu Button */}
+          <div className='lg:hidden'>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <RiCloseFill className='h-9 w-9' /> : <RiMenuFill className='h-9 w-9' />}
+            </button>
+          </div>
+        
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className='lg:hidden bg-[#333333] text-white fixed top-28 min-[425px]:top-20 left-0 w-full flex flex-col items-start justify-center p-2'>
+            {navItems.map((item, index) => (
+              <NavLink
+                key={index}
+                to={item.path}
+                className={({isActive}) =>
+              isActive
+              ? 'w-full py-3 uppercase px-2 text-black text-lg font-medium bg-[#00d8ff] rounded-xs'
+              : 'w-full py-3 uppercase px-2 text-white text-lg font-medium rounded-xs'
+              }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </div>
+        )}
+
+        {/* Links Section for Large Screen*/}
+        <div className='hidden lg:flex'>
           <ul className='flex items-center justify-center'>
             {navItems.map((item, index) =>
               <li
@@ -80,9 +115,19 @@ const Navbar = () => {
                     onMouseEnter={() => setShowDropdown(true)}
                     onMouseLeave={() => setShowDropdown(false)}
                   >
-                    <p className='text-lg font-medium hover:bg-[#00d8ff] hover:text-black py-1.5 px-4 hover:font-semibold uppercase '>{item.name}</p>
+                    {/* <p className='text-lg font-medium hover:bg-[#00d8ff] hover:text-black py-1.5 px-4 hover:font-semibold uppercase '>{item.name}</p> */}
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        isActive
+                          ? ' text-sm xl:text-lg font-semibold bg-[#00d8ff] text-black py-2 px-2.5 lg:px-2 xl:py-3 xl:px-5 uppercase rounded-xs'
+                          : ' text-sm xl:text-lg font-medium hover:bg-[#00d8ff] hover:text-black py-2 px-2.5 lg:px-2 xl:py-3 xl:px-5 uppercase rounded-xs'
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
                     {showDropdown && (
-                      <div className="absolute -translate-x-80 bg-gray-100 w-5xl py-8 px-4 rounded shadow-xl">
+                      <div className="absolute lg:-translate-x-[370px] xl:-translate-x-80 bg-gray-100 w-5xl py-8 px-4 rounded shadow-xl lg:mt-0.5  xl:mt-2">
                         <div className="flex items-start justify-evenly space-x-6">
                           {/* Map through each category */}
                           {CategoryItems.map((category) => (
@@ -140,8 +185,8 @@ const Navbar = () => {
                       to={item.path}
                       className={({ isActive }) =>
                         isActive
-                          ? 'text-lg font-semibold bg-[#00d8ff] text-black py-2 px-4 uppercase'
-                          : 'text-lg font-medium hover:bg-[#00d8ff] py-2 px-4 uppercase'
+                          ? 'text-sm xl:text-lg font-semibold bg-[#00d8ff] text-black py-2 px-2.5 lg:px-2 xl:py-3 xl:px-5 uppercase rounded-xs'
+                          : 'text-sm xl:text-lg font-medium hover:bg-[#00d8ff] py-2 px-2.5 lg:px-2 xl:py-3 xl:px-5 uppercase rounded-xs'
                       }
                     >
                       {item.name}
@@ -151,14 +196,11 @@ const Navbar = () => {
               </li>
             )}
           </ul>
-
-          {/* Menu Section */}
-          <div>
-
-          </div>
-
         </div>
+
+
       </div>
+    </div >
     </>
   )
 }

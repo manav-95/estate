@@ -6,6 +6,7 @@ import Redevelope from "./pages/Redevelope";
 import Corporate from "./pages/Corporate";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import OurProjects from "./pages/OurProjects";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/corporate-governance" element={<Corporate />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/our-projects" element={<OurProjects />} />
         </Route>
       </Routes>
     </Router>

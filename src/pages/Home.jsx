@@ -7,6 +7,7 @@ import FeaturedProjects from '../components/FeaturedProjects';
 
 import Map from '../assets/project-map.jpg'
 import Testimonials from '../components/Testimonials';
+import StayInTouch from '../components/StayInTouch';
 
 const Home = () => {
   return (
@@ -39,6 +40,7 @@ const Home = () => {
             </div>
           </div>
 <Testimonials />
+<StayInTouch />
         </div>
       </div>
     </>

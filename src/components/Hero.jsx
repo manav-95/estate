@@ -18,7 +18,7 @@ const Hero = () => {
 
   const HeroImageContent = [
     {
-      name: 'Pearl Palace',
+      name: 'Pearl Palace C.H.S.L',
       location: 'Santacruz East',
       city: 'Mumbai',
       image: Building1,
