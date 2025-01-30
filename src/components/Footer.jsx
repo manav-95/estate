@@ -1,8 +1,11 @@
 import React from 'react'
+import StayInTouch from './StayInTouch'
 
 const Footer = () => {
   return (
-    <div></div>
+    <div>
+      <StayInTouch />
+    </div>
   )
 }
 

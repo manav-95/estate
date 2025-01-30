@@ -1,29 +1,25 @@
 import React, { useRef } from 'react';
 
+import underConstruction from '../data/UnderConstructionData';
+import completedConstruction from '../data/CompletedConstructionData';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
 
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
-import HeroImage from '../assets/our-projects-images/hero-image.jpg';
-import Pearl_Palace from '../assets/featured-projects/pearl-palace.jpg'
-
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import 'swiper/css/pagination';
 
+import HeroImage from '../assets/our-projects-images/hero-image.jpg';
+import { NavLink } from 'react-router-dom';
+
+
 const OurProjects = () => {
 
-  const swiperRef = useRef(null);
-
-  const underConstruction = [
-    { name: 'Pearl Palace', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
-    { name: 'Samarth C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
-    { name: 'Jamuna Mahal C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
-    { name: 'Union Bank of India C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
-    { name: 'Lakshman Tower C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
-    { name: 'Tiara C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
-  ]
+  const swiperUnderConstructionRef = useRef(null);
+  const swiperCompletedRef = useRef(null);
 
   return (
     <>
@@ -46,76 +42,32 @@ const OurProjects = () => {
           <p className=''>
             Redevelopment Projects in Mumbai from PCPL is known for offering quality living. Each of our upcoming and under-constructionredevelopment projects offers premium facilities and amenities. We take pride in each of our redevelopmentprojects so that it offers a perfect blend of simplicity and elegance. With a significant part to play in the real estate industry, our journey has been inspired by the ever-evolving living habits of people. So, what are you waiting for? Buy a flat in Mumbai and enjoy an urban elegant lifestyle.
           </p>
-          <p className='my-10'>Check out exclusive Under-construction, Upcoming and Completed Redevelopment Projects by PCPL.</p>
+          <p className=''>Check out exclusive Under-construction, Upcoming and Completed Redevelopment Projects by PCPL.</p>
         </div>
       </div>
 
       {/* UnderConstruction Section */}
-      {/* <div className='max-w-7xl container mx-auto px-4 relative'>
-        <div className='absolute top-56 w-full flex items-center justify-between z-50'>
-          <button onClick={() => swiperRef.current?.slidePrev()} className='border-2 border-[#00d8ff] text-[#00d8ff] hover:bg-[#00d8ff] hover:text-black p-3 lg:p-4 rounded-full cursor-pointer duration-150 transition-all ease-in-out'><FaAngleLeft className='h-5 w-5' /></button>
-          <button onClick={() => swiperRef.current?.slideNext()} className='border-2 border-[#00d8ff] text-[#00d8ff] hover:bg-[#00d8ff] hover:text-black p-3 lg:p-4 rounded-full cursor-pointer duration-150 transition-all ease-in-out'><FaAngleRight className='h-5 w-5' /></button>
-        </div>
-        <Swiper
-          modules={[Autoplay, EffectCreative]}
-          slidesPerView={1}
-          spaceBetween={0}
-          slidesPerGroup={3}
-          breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                },
-              }}
-          loop={true}
-          speed={500}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className='max-w-5xl container mx-auto px-4'
-        >
-
-
-          {underConstruction.map((item, index) =>
-            <SwiperSlide key={index}>
-              <div
-                className='flex flex-col bg-white items-center justify-center shadow p-4 rounded'
-              >
-                <div className='w-full'>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className='w-full h-full object-center object-contain rounded'
-                  />
-                </div>
-                <div className='flex flex-col items-center justify-center text-center bg-gray-100 w-full mt-4 p-2 -space-y-0.5 uppercase rounded'>
-                  <h1 className='text-lg font-semibold'>{item.name}</h1>
-                  <p className='text-base font-medium text-gray-500'>{item.flats}</p>
-                  <p className='text-base font-medium text-gray-500'>{item.location}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          )}
-        </Swiper>
-      </div> */}
       <div className="max-w-7xl mx-auto px-4 relative">
-        {/* Navigation Buttons */}
-        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 sm:px-8 z-50 transform -translate-y-1/2">
-          <button
-            onClick={() => swiperRef.current?.slidePrev()}
-            className="border-2 border-[#00d8ff] text-[#00d8ff] hover:bg-[#00d8ff] hover:text-black p-2 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-          >
-            <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-          </button>
-          <button
-            onClick={() => swiperRef.current?.slideNext()}
-            className="border-2 border-[#00d8ff] text-[#00d8ff] hover:bg-[#00d8ff] hover:text-black p-2 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-          >
-            <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
-          </button>
+        {/* head section */}
+        <div className='flex justify-center items-center text-center'>
+          <h1 className='text-4xl font-medium uppercase'>Under Construction Redevelopment Projects</h1>
         </div>
+        {/* Navigation Buttons */}
+        {/* <div className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 left-0 right-0 flex justify-between px-4 sm:px-8 transform -translate-y-1/2"> */}
+        <button
+          onClick={() => swiperUnderConstructionRef.current?.slidePrev()}
+          className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+        >
+          <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+        </button>
+        <button
+          onClick={() => swiperUnderConstructionRef.current?.slideNext()}
+          className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+        >
+          <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
+        </button>
+        {/* </div> */}
 
-        {/* Swiper Carousel */}
         <Swiper
           modules={[Autoplay, EffectCreative, Pagination]}
           slidesPerView={1}
@@ -131,33 +83,46 @@ const OurProjects = () => {
           }}
           loop={true}
           speed={500}
-          autoplay={{ delay: 3000 }}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className="max-w-5xl mx-auto mb-10"
+          autoplay={{
+            delay: 3000,
+            pauseOnMouseEnter: true,
+          }}
+          onSwiper={(swiper) => (swiperUnderConstructionRef.current = swiper)}
+          className="max-w-5xl mx-auto my-10"
         >
-          {underConstruction.map((item, index) => (
-            <SwiperSlide key={index}>
+          {underConstruction.map((item) => (
+            <SwiperSlide key={item.id}>
               <div
-                className='flex flex-col bg-white items-center justify-center p-4 rounded'
+                className='group hover:shadow-lg flex flex-col bg-white items-center justify-center p-4 rounded'
               >
-                <div className='w-full'>
+                <div className='w-full h-ful relative group'>
                   <img
                     src={item.image}
                     alt={item.name}
                     className='w-full h-full object-center object-contain rounded-sm'
                   />
+                  <div className='w-full lg:hidden lg:group-hover:flex justify-center items-center group-hover:absolute bg-[rgba(0,0,0,0.4)] inset-0 rounded'>
+                    <NavLink
+                      to={`/project/${item.name}`}
+                    >
+                      <button className='w-full lg:w-fit bg-[rgba(0,0,0,0.8)] text-white py-2 min-[425px]:py-3 sm:py-2 md:py-3 px-6 cursor-pointer uppercase'>{item.buttonText}</button>
+                    </NavLink>
+                  </div>
                 </div>
-                <div className='flex flex-col items-center justify-center text-center bg-gray-100 w-full mt-4 p-2 -space-y-0.5 uppercase rounded-sm'>
-                  <h1 className='text-lg font-semibold'>{item.name}</h1>
-                  <p className='text-base font-medium text-gray-500'>{item.flats}</p>
-                  <p className='text-base font-medium text-gray-500'>{item.location}</p>
+                <div className='group-hover:bg-gray-50 flex flex-col items-center justify-center text-center bg-gray-100 w-full mt-4 p-2 -space-y-0.5 uppercase rounded-sm'>
+                  <h1 className='text-sm min-[425px]:text-lg min-[425px]:font-semibold font-bold text-black'>{item.name}</h1>
+                  <p className='text-xs min-[425px]:text-base min-[425px]:font-medium font-semibold text-gray-500'>{item.flats}</p>
+                  <p className='text-xs min-[425px]:text-base min-[425px]:font-medium font-semibold text-gray-500'>{item.location}</p>
                 </div>
               </div>
             </SwiperSlide>
           ))}
-          <div className="custom-pagination !pt-6  flex space-x-2 justify-center cursor-pointer "></div>
+          {/* paginations dots */}
+          <div className="custom-pagination !pt-5  flex space-x-2 justify-center cursor-pointer "></div>
         </Swiper>
       </div>
+
+
 
     </>
   );

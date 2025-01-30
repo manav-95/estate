@@ -63,8 +63,8 @@ export default function Testimonials() {
     return (
         <div className="bg-gray-100 py-12 ">
             <div className="max-w-7xl container mx-auto px-4">
-                <h2 className="text-5xl font-semibold text-gray-900 text-center md:hidden">Testimonials</h2>
-                <h2 className="text-5xl font-semibold text-gray-900 text-center hidden md:block">What Our Clients Says</h2>
+                <h2 className="text-3xl min-[425px]:text-4xl font-semibold text-gray-900 text-center md:hidden">Testimonials</h2>
+                <h2 className="text-3xl min-[425px]:text-4xl font-semibold text-gray-900 text-center hidden md:block">What Our Clients Says</h2>
                 <Swiper
                     modules={[Pagination, A11y, Autoplay]}
                     spaceBetween={30}
@@ -83,13 +83,13 @@ export default function Testimonials() {
                     loop={true}
                     speed={500}
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
-                    className="max-w-2xl"
+                    className="max-w-2xl h-full"
                 >
                     {testimonials.map((testimonial) => (
-                        <div className="">
+                        <div className="h-full">
                             <SwiperSlide
                                 key={testimonial.id}
-                                className="w-full my-10"
+                                className="h-full w-full my-10 cursor-grab"
                             >
                                 <h3 className="text-2xl text-center mb-4 font-semibold text-gray-900">{testimonial.name}</h3>
                                 <p className="text-lg text-gray-700 text-center">{testimonial.content}</p>

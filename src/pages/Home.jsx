@@ -7,7 +7,6 @@ import FeaturedProjects from '../components/FeaturedProjects';
 
 import Map from '../assets/project-map.jpg'
 import Testimonials from '../components/Testimonials';
-import StayInTouch from '../components/StayInTouch';
 
 const Home = () => {
   return (
@@ -19,9 +18,8 @@ const Home = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
-          height: '100vh',
+
         }}
-        className='overflow-y-auto h-screen'
       >
         <div className='bg-[#333333]'>
           <Hero />
@@ -39,8 +37,7 @@ const Home = () => {
               <img src={Map} alt="project map" className="w-full h-full object-center object-cover" />
             </div>
           </div>
-<Testimonials />
-<StayInTouch />
+          <Testimonials />
         </div>
       </div>
     </>
