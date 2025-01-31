@@ -22,7 +22,7 @@ const AboutCard = () => {
                         {/* Title and Subtitle */}
                         <div>
                             <h1 className="uppercase text-3xl min-[425px]:text-4xl lg:text-4xl sm:text-center md:text-left font-bold text-gray-800 mb-2.5">
-                                Amar Constructions, Mumbai
+                                VR Group, Mumbai
                             </h1>
                             <p className="uppercase text-xl sm:text-center md:text-left font-semibold text-gray-700 mb-2">
                                 Crafting Dream Spaces with Trust and Integrity

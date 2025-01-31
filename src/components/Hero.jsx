@@ -8,9 +8,13 @@ import 'swiper/css/effect-creative';
 
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
-import Building1 from '../assets/hero-images/building-1.jpg'
-import Building2 from '../assets/hero-images/building-2.jpg'
-import Building3 from '../assets/hero-images/building-3.jpg'
+// import Building1 from '../assets/hero-images/building-1.jpg'
+// import Building2 from '../assets/hero-images/building-2.jpg'
+// import Building3 from '../assets/hero-images/building-3.jpg'
+
+import Krishna_Koyna_Day from '../assets/featured-projects/completed-projects/krishna-koyna-day.jpg'
+import Global_Residency from '../assets/featured-projects/completed-projects/global-residency.jpeg'
+
 
 const Hero = () => {
 
@@ -18,32 +22,32 @@ const Hero = () => {
 
   const HeroImageContent = [
     {
-      name: 'Pearl Palace C.H.S.L',
-      location: 'Santacruz East',
+      name: 'Krishna Koyna',
+      location: 'Location East',
       city: 'Mumbai',
-      image: Building1,
+      image: Krishna_Koyna_Day,
       Flats: ['2 BHK', '3 BHK',],
       buttonText: 'view Details',
       buttonLink: '#',
     },
     {
-      name: 'Jamuna Mahal C.H.S.L',
-      location: 'Dahishar West',
+      name: 'Global Residency',
+      location: 'Location West',
       city: 'Mumbai',
-      image: Building2,
+      image: Global_Residency,
       Flats: ['1 BHK', '2 BHK', '3 BHK'],
       buttonText: 'view Details',
       buttonLink: '#',
     },
-    {
-      name: 'Lakshman Tower C.H.S.L',
-      location: 'Borivali West',
-      city: 'Mumbai',
-      image: Building3,
-      Flats: ['2 BHK', '4 BHK', '1 BHK'],
-      buttonText: 'view Details',
-      buttonLink: '#',
-    },
+    // {
+    //   name: 'Lakshman Tower C.H.S.L',
+    //   location: 'Borivali West',
+    //   city: 'Mumbai',
+    //   image: Building3,
+    //   Flats: ['2 BHK', '4 BHK', '1 BHK'],
+    //   buttonText: 'view Details',
+    //   buttonLink: '#',
+    // },
   ]
 
   return (
@@ -73,7 +77,7 @@ const Hero = () => {
         >
           {HeroImageContent.map((content, index) => (
             <SwiperSlide key={index}>
-              <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 w-full h-full lg:h-[540px] bg-[#333333] text-white'>
+              <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 w-full max-h-[700px] sm:max-h-[1000px] md:max-h-[1200px] lg:h-[540px] xl:h-[600px] bg-[#333333] text-white'>
 
                 {/* For View More Button and Information */}
                 <div className='lg:col-span-5 xl:col-span-4 py-6 relative'>
@@ -99,12 +103,12 @@ const Hero = () => {
                   </div>
                 </div>
                 {/* For Image That Contain informations */}
-                <div className='lg:col-span-7 xl:col-span-8'>
-                  <div className='h-full lg:h-[540px]'>
-                    <img
+                <div className='lg:col-span-7 xl:col-span-8 flex flex-col justify-center'>
+                <div className="h-[400px] sm:h-[700px] md:h-[800px] lg:h-[540px] xl:h-[600px]">
+                <img
                       src={content.image}
                       alt='Hero image'
-                      className='w-full h-full object-cover object-center'
+                      className='w-full h-full object-fill lg:object-fill  object-top'
                     />
                   </div>
                 </div>

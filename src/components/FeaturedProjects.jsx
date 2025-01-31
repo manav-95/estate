@@ -1,15 +1,16 @@
 import React from 'react'
 
-import Pearl_Palace from '../assets/featured-projects/pearl-palace.jpg'
+import Krishna_Koyna_Day from '../assets/featured-projects/completed-projects/krishna-koyna-day.jpg'
+import Global_Residency from '../assets/featured-projects/completed-projects/global-residency.jpeg'
 
 const FeaturedProjects = () => {
   const projects = [
-    { name: 'Pearl Palace', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
-    { name: 'Samarth C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
-    { name: 'Jamuna Mahal C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
-    { name: 'Union Bank of India C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
-    { name: 'Lakshman Tower C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
-    { name: 'Tiara C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
+    { name: 'Krishna Koyna', image: Krishna_Koyna_Day, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
+    { name: 'Global Residency', image: Global_Residency, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
+    // { name: 'Jamuna Mahal C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
+    // { name: 'Union Bank of India C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
+    // { name: 'Lakshman Tower C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
+    // { name: 'Tiara C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
   ]
   return (
     <>
@@ -25,19 +26,19 @@ const FeaturedProjects = () => {
           {projects.map((project, index) =>
             <div
               key={index}
-              className='flex flex-col bg-white items-center justify-center shadow p-4 rounded'
+              className='flex flex-col bg-white items-center justify-center shadow p-2 rounded'
             >
               <div className='w-full'>
                 <img
                   src={project.image}
                   alt={project.name}
-                  className='w-full h-full object-center object-contain rounded'
+                  className='w-full h-full object-center object-cover aspect-[4/5] rounded'
                 />
               </div>
-              <div className='flex flex-col items-center justify-center text-center bg-gray-100 w-full mt-4 p-2 -space-y-0.5 uppercase rounded'>
-                <h1 className='text-xl font-semibold'>{project.name}</h1>
-                <p className='text-md font-medium text-gray-500'>{project.flats}</p>
-                <p className='text-md font-medium text-gray-500'>{project.location}</p>
+              <div className='flex flex-col items-center justify-center text-center bg-gray-100 w-full mt-2 px-2 py-1 space-y-0 uppercase rounded'>
+                <h1 className='text-lg font-medium'>{project.name}</h1>
+                <p className='text-sm font-medium text-gray-500'>{project.flats}</p>
+                <p className='text-sm font-medium text-gray-500'>{project.location}</p>
               </div>
             </div>
           )}
