@@ -307,6 +307,9 @@ const CorporateGovernanceContent = () => {
                                           ))}
                                         </tbody>
                                       </table>
+                                      <div className='my-4 flex justify-end items-center'>
+                                        <p className='text-sm md:text-md lg:text-base'>Terms of Reference of {committee.title}</p>
+                                      </div>
                                     </div>
                                   </div>
                                 ))}

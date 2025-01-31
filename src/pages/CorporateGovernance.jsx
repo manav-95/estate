@@ -44,7 +44,7 @@ const CorporateGovernance = () => {
               >
                 <button
                   onClick={() => setActiveTab(tab.id)}
-                  className={`${activeTab === tab.id ? 'text-black bg-[#00d8ff] rounded-sm' : 'text-white'} w-full cursor-pointer py-4 px-4 font-semibold text-base lg:text-lg uppercase`}
+                  className={`${activeTab === tab.id ? 'text-black bg-[#00d8ff] rounded-sm' : 'text-white'} w-full cursor-pointer py-3 px-4 font-semibold text-base lg:text-lg uppercase`}
                 >
                   {tab.title}
                 </button>

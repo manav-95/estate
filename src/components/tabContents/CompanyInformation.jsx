@@ -22,8 +22,8 @@ const CompanyInformation = () => {
                   <p>{info.landmark}</p>
                   <p>{info.location}</p>
                 </div>
-                <p className='mb-2'><b>Contact No:</b> {info.contact}</p>
-                <p className=''><b>Email:</b> {info.email}</p>
+                <p className='mb-2'><b>Contact No :</b> {info.contact}</p>
+                <p className=''><b>Email :</b> {info.email}</p>
               </div>
             </div>
           ))}
