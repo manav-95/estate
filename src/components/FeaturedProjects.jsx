@@ -2,12 +2,13 @@ import React from 'react'
 
 import Krishna_Koyna_Day from '../assets/featured-projects/completed-projects/krishna-koyna-day.jpg'
 import Global_Residency from '../assets/featured-projects/completed-projects/global-residency.jpeg'
+import Vir_Enclave from '../assets/featured-projects/under-construction/vir-enclave-night.jpg'
 
 const FeaturedProjects = () => {
   const projects = [
     { name: 'Krishna Koyna', image: Krishna_Koyna_Day, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
     { name: 'Global Residency', image: Global_Residency, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },
-    // { name: 'Jamuna Mahal C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
+    { name: 'Vir Enclave', image: Vir_Enclave, flats: '2 & 3 BHK Flats', location: 'Malad (W)', },
     // { name: 'Union Bank of India C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
     // { name: 'Lakshman Tower C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'SantaCruz (E)', },
     // { name: 'Tiara C.H.S.L', image: Pearl_Palace, flats: '2 & 3 BHK Flats', location: 'Borivali (W)', },

@@ -1,5 +1,7 @@
 import React from 'react';
 import Building4 from '../assets/about-card-images/building-4.jpg';
+import Vir_Enclave_Day from '../assets/featured-projects/under-construction/vir-enclave-day.jpg'
+
 
 const AboutCard = () => {
     return (
@@ -10,7 +12,7 @@ const AboutCard = () => {
                     <div className="lg:col-span-5 flex">
                         <div className="h-full w-full">
                             <img
-                                src={Building4}
+                                src={Vir_Enclave_Day}
                                 alt="Building image"
                                 className="h-full md:h-[700px] lg:h-full w-full object-cover object-center rounded-lg shadow-md"
                             />

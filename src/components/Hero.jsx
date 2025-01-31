@@ -14,6 +14,7 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
 import Krishna_Koyna_Day from '../assets/featured-projects/completed-projects/krishna-koyna-day.jpg'
 import Global_Residency from '../assets/featured-projects/completed-projects/global-residency.jpeg'
+import Vir_Enclave_Night from '../assets/featured-projects/under-construction/vir-enclave-night.jpg'
 
 
 const Hero = () => {
@@ -23,7 +24,7 @@ const Hero = () => {
   const HeroImageContent = [
     {
       name: 'Krishna Koyna',
-      location: 'Location East',
+      location: 'Location Here',
       city: 'Mumbai',
       image: Krishna_Koyna_Day,
       Flats: ['2 BHK', '3 BHK',],
@@ -32,22 +33,22 @@ const Hero = () => {
     },
     {
       name: 'Global Residency',
-      location: 'Location West',
+      location: 'Location Here',
       city: 'Mumbai',
       image: Global_Residency,
       Flats: ['1 BHK', '2 BHK', '3 BHK'],
       buttonText: 'view Details',
       buttonLink: '#',
     },
-    // {
-    //   name: 'Lakshman Tower C.H.S.L',
-    //   location: 'Borivali West',
-    //   city: 'Mumbai',
-    //   image: Building3,
-    //   Flats: ['2 BHK', '4 BHK', '1 BHK'],
-    //   buttonText: 'view Details',
-    //   buttonLink: '#',
-    // },
+    {
+      name: 'Vir Enclave',
+      location: 'Location Here',
+      city: 'Mumbai',
+      image: Vir_Enclave_Night,
+      Flats: ['2 BHK', '4 BHK', '1 BHK'],
+      buttonText: 'view Details',
+      buttonLink: '#',
+    },
   ]
 
   return (
