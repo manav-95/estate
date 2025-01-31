@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import directors from '../../data/DirectorsData'
 import managerials from '../../data/KeyManagerialsData'
+import boardCommittees from '../../data/BoardCommitteesData'
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -11,6 +12,7 @@ import { MdOutlineClose } from "react-icons/md";
 
 const CorporateGovernanceContent = () => {
   const [activeButton, setActiveButton] = useState(null);
+  const [boardCommitteActiveButton, setBoardCommitteActiveButton] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +35,16 @@ const CorporateGovernanceContent = () => {
     { id: 'Codes & Policies', title: 'Codes & Policies' },
   ];
 
+  const boardCommittessButtons = [
+    { id: '1', title: 'Audit Committee' },
+    { id: '2', title: 'Nomination and Remuneration Committee' },
+    { id: '3', title: `Stakeholder's Relationship Committee` },
+    { id: '4', title: 'Corporate Social Responsibility Committee' },
+    { id: '5', title: 'Committee of Independent Directors' },
+  ]
+
   return (
-    <div className="max-w-7xl container mx-auto px-4">
+    <div className="max-w-7xl container mx-auto">
       {/* BUTTONS */}
       <div className="flex flex-col justify-start items-center space-y-4 py-12">
         {buttons.map((button) => (
@@ -43,13 +53,13 @@ const CorporateGovernanceContent = () => {
             {/* BUTTON */}
             <button
               onClick={() => setActiveButton(activeButton === button.id ? null : button.id)} // Toggle content
-              className="w-full flex justify-between items-center border-l-6 border-[#4169e1] py-3 px-3 sm:p-4 md:px-6 md:py-4 bg-white cursor-pointer"
+              className="w-full flex justify-between items-center text-left border-l-6 border-[#4169e1] py-3 px-3 sm:p-4 md:px-6 md:py-4 bg-white cursor-pointer"
             >
-              <h1 className="text-sm min-[425px]:text-lg  font-medium uppercase">{button.title}</h1>
+              <h1 className="text-lg min-[425px]:text-lg  font-medium uppercase">{button.title}</h1>
               {activeButton === button.id ? (
-                <FaMinus className="h-5 w-5 text-[#4169e1]" />
+                <FaMinus className="h-5 w-5 text-[#4169e1] flex-shrink-0" />
               ) : (
-                <FaPlus className="h-5 w-5 text-[#4169e1]" />
+                <FaPlus className="h-5 w-5 text-[#4169e1] flex-shrink-0" />
               )}
             </button>
 
@@ -67,7 +77,7 @@ const CorporateGovernanceContent = () => {
                       {directors.map((director) =>
                         <div
                           key={director.id}
-                          className='flex flex-col justify-center items-center sm:items-start sm:text-left lg:items-start xl:items-center py-4 lg:py-8 lg:px-8 text-center hover:shadow-md border border-transparent hover:border-black'
+                          className='flex flex-col justify-center items-center sm:items-start sm:text-left lg:items-start xl:items-center py-4 lg:py-8 lg:px-8 text-center hover:shadow-lg border border-transparent hover:border-black'
                         >
 
                           <img
@@ -244,13 +254,87 @@ const CorporateGovernanceContent = () => {
                 {/* BOARD COMMITTEES */}
                 {button.id === 'Board Committees' && (
                   <>
+                    <div className="flex flex-col justify-start items-center space-y-4 py-2 sm:py-4">
+                      {boardCommittessButtons.map((button) => (
+                        <div key={button.id} className="w-full">
 
+                          {/* BUTTON */}
+                          <button
+                            onClick={() =>
+                              setBoardCommitteActiveButton(
+                                boardCommitteActiveButton.includes(button.id)
+                                  ? boardCommitteActiveButton.filter(id => id !== button.id) // Remove if already open
+                                  : [...boardCommitteActiveButton, button.id] // Add if not open
+                              )
+                            }
+
+                            className="w-full flex justify-between items-start text-left border-l-6 border-[#4169e1] py-2.5 px-3 sm:py-3.5 sm:px-4 md:px-6 md:py-3.5 bg-white cursor-pointer"
+                          >
+                            <h1 className="text-base min-[425px]:text-lg font-medium uppercase">{button.title}</h1>
+                            {boardCommitteActiveButton === button.id ? (
+                              <FaMinus className="h-5 w-5 text-[#4169e1] flex-shrink-0" />
+                            ) : (
+                              <FaPlus className="h-5 w-5 text-[#4169e1] flex-shrink-0" />
+                            )}
+                          </button>
+
+                          {/* BUTTON CONTENTS */}
+                          <div
+                            className={`overflow-hidden transition-all duration-150 ${boardCommitteActiveButton.includes(button.id) ? 'h-full opacity-100 py-4' : 'max-h-0 opacity-0'
+                              } mt-4`}
+                          >
+                            <div className="py-2 sm:py-4">
+                              {boardCommittees
+                                .filter((committee) => committee.id === button.id) // Find the matching committee
+                                .map((committee) => (
+                                  <div key={committee.id} className=' max-w-5xl container mx-auto'>
+                                    <div className='overflow-x-auto'>
+                                      <table className='w-full border border-gray-300'>
+                                        <thead className='bg-slate-200'>
+                                          <tr>
+                                            <td className='text-base sm:text-md md:text-lg font-medium align-top py-2 px-4 border-b border-gray-300'>Name of the Director</td>
+                                            <td className='text-base sm:text-md md:text-lg font-medium align-top py-2 px-4 border-b border-gray-300'>Position in the Committee</td>
+                                            <td className='text-base sm:text-md md:text-lg font-medium align-top py-2 px-4 border-b border-gray-300'>Designation</td>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          {committee.details.map((person, index) => (
+                                            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-200'}>
+                                              <td className='text-sm md:text-md lg:text-base align-top py-2 px-4 border-b border-gray-300'>{person.directorName}</td>
+                                              <td className='text-sm md:text-md lg:text-base align-top py-2 px-4 border-b border-gray-300'>{person.directorPosition}</td>
+                                              <td className='text-sm md:text-md lg:text-base align-top py-2 px-4 border-b border-gray-300'>{person.directorDesignation}</td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                ))}
+                            </div>
+                          </div>
+
+
+                        </div>
+                      ))}
+                    </div>
                   </>
                 )}
+
+                {/* CODES $ POLICIES */}
                 {button.id === 'Codes & Policies' && (
-                  <p className="text-gray-700">
-                    Our corporate codes and policies ensure ethical business conduct and regulatory compliance.
-                  </p>
+                  <div className='max-w-6xl container mx-auto px-4 md:px-8 xl:px-0'>
+                    <ul className='list-decimal space-y-6'>
+                      <li className='text-cyan-600 hover:text-cyan-900 transition-all duration-75 ease-in-out'>
+                        <a href="#" className='ml-2'>Corporate Social Responsibility Policy</a>
+                      </li>
+                      <li className='text-cyan-600 hover:text-cyan-900 transition-all duration-75 ease-in-out'>
+                        <a href="#" className='ml-2'>Employee Fraternization Policy</a>
+                      </li>
+                      <li className='text-cyan-600 hover:text-cyan-900 transition-all duration-75 ease-in-out'>
+                        <a href="#" className='ml-2'>Policy for Prevention of Sexual Harassment at Workplace</a>
+                      </li>
+                    </ul>
+                  </div>
                 )}
               </div>
             </div>

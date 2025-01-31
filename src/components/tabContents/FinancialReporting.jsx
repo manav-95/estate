@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
+import { BsFiletypePdf } from "react-icons/bs";
+
 
 const FinancialReporting = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -12,7 +14,7 @@ const FinancialReporting = () => {
   ];
 
   return (
-    <div className="max-w-7xl container mx-auto px-4">
+    <div className="max-w-7xl container mx-auto">
       {/* BUTTONS */}
       <div className="flex flex-col justify-start items-center space-y-4 py-12">
         {buttons.map((button) => (
@@ -41,14 +43,51 @@ const FinancialReporting = () => {
                 {/* FINANCIAL REPORTING */}
                 {button.id === 'Financial Reporting' && (
                   <>
+                    <div className="w-full px-4">
+                      {/* FY 2023-24 */}
+                      <div className="mb-6">
+                        <h1 className="text-lg mb-2">FY 2023-24</h1>
+                        <a href="/src/assets/documents/dummy.pdf" target='_blank'>
+                          <button className="flex items-center w-full sm:w-auto text-sm py-2.5 px-4 border rounded-xs text-blue-900 cursor-pointer">
+                            <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
+                            AGM Notice - FY 2023-24
+                          </button>
+                        </a>
+                      </div>
+
+                      {/* FY 2022-23 */}
+                      <div>
+                        <h1 className="text-lg mb-2">FY 2022-23</h1>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+                          <a href="/src/assets/documents/dummy.pdf" target='_blank'>
+                            <button className="flex items-center w-full sm:w-auto py-2.5 px-4 border rounded-xs text-sm text-blue-900 cursor-pointer">
+                              <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
+                              Auditors Reports on Financial Statements - FY 2022-23
+                            </button>
+                          </a>
+                          <a href="/src/assets/documents/dummy.pdf" target='_blank'>
+                            <button className="flex items-center w-full sm:w-auto py-2.5 px-4 border rounded-xs text-sm text-blue-900 cursor-pointer">
+                              <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
+                              Standalone Financial Statements - FY 2022-23
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
 
                   </>
                 )}
 
                 {/* ANNUAL REPORTING */}
                 {button.id === 'Annual Reporting' && (
-                  <>
-
+                  <> <div className="mb-6">
+                    <a href="/src/assets/documents/dummy.pdf" target='_blank'>
+                      <button className="flex items-center w-full sm:w-auto text-sm py-2.5 px-4 border rounded-xs text-blue-900 cursor-pointer">
+                        <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
+                        Annual Report - FY 2022-23
+                      </button>
+                    </a>
+                  </div>
                   </>
                 )}
               </div>

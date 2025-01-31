@@ -25,7 +25,7 @@ const CorporateGovernance = () => {
 
         {/* Content on top of the overlay */}
         <div className="relative h-full w-full flex justify-center items-center text-white text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold uppercase">
             {tabs.map((tab) =>
               activeTab === tab.id ? tab.title : null
             )}
@@ -35,8 +35,8 @@ const CorporateGovernance = () => {
 
       {/* TABS BUTTONS */}
       <div className='bg-gradient-to-b from-cyan-500 to-blue-500'>
-        <div className='max-w-7xl container mx-auto px-4'>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-0 '>
+        <div className='max-w-7xl container mx-auto px-2 md:px-2 xl:px-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-0 py-2 md:py-2'>
             {tabs.map((tab) =>
               <div
                 key={tab.id}
@@ -44,7 +44,7 @@ const CorporateGovernance = () => {
               >
                 <button
                   onClick={() => setActiveTab(tab.id)}
-                  className='w-full cursor-pointer py-4 px-4 font-semibold text-base lg:text-lg uppercase text-white'
+                  className={`${activeTab === tab.id ? 'text-black bg-[#00d8ff] rounded-sm' : 'text-white'} w-full cursor-pointer py-4 px-4 font-semibold text-base lg:text-lg uppercase`}
                 >
                   {tab.title}
                 </button>

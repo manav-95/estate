@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import OurProjects from "./pages/OurProjects";
 import ProjectDetails from "./pages/ProjectDetails";
 
+
 function App() {
   return (
     <Router>
