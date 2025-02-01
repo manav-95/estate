@@ -4,10 +4,16 @@ import Pearl_Palace from '../assets/featured-projects/pearl-palace.jpg'
 import Vir_Enclave_Day from '../assets/featured-projects/under-construction/vir-enclave-day.jpg'
 import QR from '../assets/qr.jpg'
 
-import Barbeque_Area from '../assets/indoor-and-outdoor-aminities/Barbeque-area.png'
-import Kids_Play_Area from '../assets/indoor-and-outdoor-aminities/KIDS-PLAY-AREA.png'
-import Senior_Citizen_Seating_Area from '../assets/indoor-and-outdoor-aminities/SENIOR-CITIZEN-SEATING-AREA.png'
-import Walking_Pathway from '../assets/indoor-and-outdoor-aminities/WALKING-PATHWAY.png'
+import Barbeque_Area from '../assets/project-details/indoor-and-outdoor-aminities/Barbeque-area.png'
+import Kids_Play_Area from '../assets/project-details/indoor-and-outdoor-aminities/KIDS-PLAY-AREA.png'
+import Senior_Citizen_Seating_Area from '../assets/project-details/indoor-and-outdoor-aminities/SENIOR-CITIZEN-SEATING-AREA.png'
+import Walking_Pathway from '../assets/project-details/indoor-and-outdoor-aminities/WALKING-PATHWAY.png'
+
+import Floor1 from '../assets/project-details/floor-plans/1.jpg'
+import Floor2 from '../assets/project-details/floor-plans/2.jpg'
+import Floor3 from '../assets/project-details/floor-plans/3.jpg'
+import Floor4 from '../assets/project-details/floor-plans/4.jpg'
+import Floor5 from '../assets/project-details/floor-plans/5.jpg'
 
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -42,9 +48,11 @@ const underConstruction = [
             { image: Walking_Pathway, text: 'Walking Pathway', },
         ],
         floorPlans: [
-            "",
-            "",
-            "",
+            Floor1,
+            Floor2,
+            Floor3,
+            Floor4,
+            Floor5,
         ],
         gallary: [
             "",

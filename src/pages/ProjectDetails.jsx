@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useParams } from "react-router-dom";
+
+import ImageModal from '../components/ImageModal';
+
+import ModalImage from "react-modal-image";
+
 
 import underConstruction from '../data/UnderConstructionData';
 
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+
+
 import { FaLocationDot } from "react-icons/fa6";
+
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Pagination, A11y, Autoplay } from "swiper/modules"
+
+import "swiper/css"
+import "swiper/css/pagination"
 
 
 const ProjectDetails = () => {
+
+    const swiperRef = useRef(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const { name } = useParams();
     const content = underConstruction.find((item) => item.name === name);
@@ -144,27 +161,114 @@ const ProjectDetails = () => {
 
                 {/* AMINITIES SECTION */}
                 <div className='w-full bg-gray-200'>
-                    <div className='max-w-7xl container mx-auto px-4 py-14'>
-                        <div className='flex justify-center items-center '>
-                            <h1 className='text-5xl'>Indoor & Outdoor Aminities</h1>
+                    <div className='max-w-7xl lg:max-w-6xl container mx-auto px-4 py-16'>
+                        <div className='flex justify-center items-center text-center'>
+                            <h1 className='text-5xl'>Indoor & Outdoor Amenities</h1>
                         </div>
-                        <div className='grid grid-cols-3 gap-x-4 gap-y-10 pt-16'>
-                            {content.amenities.map((ameniti, index) =>                       
-                            <div
-                             key={index}
-                             className='flex flex-col items-center justify-center'
-                             >
-                                <img
-                                 src={ameniti.image}
-                                  alt={ameniti.text}
-                                   className='h-24 w-24 mb-4'
-                                   />
-                                   <h1 className='text-lg'>{ameniti.text}</h1>
-                            </div>
+                        <div className='grid grid-cols-1 min-[425px]:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-16 pt-20'>
+                            {content.amenities.map((ameniti, index) =>
+                                <div
+                                    key={index}
+                                    className='flex flex-col items-center justify-center'
+                                >
+                                    <img
+                                        src={ameniti.image}
+                                        alt={ameniti.text}
+                                        className='h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-20 lg:w-20 mb-4'
+                                    />
+                                    <h1 className='text-base sm:text-lg md:text-xl lg:text-lg'>{ameniti.text}</h1>
+                                </div>
                             )}
                         </div>
                     </div>
                 </div>
+
+                {/* FLOOR PLAN SECTION */}
+                <div className='w-full bg-white'>
+                    <div className='max-w-7xl container mx-auto px-4 py-14'>
+                        <div className='flex justify-center items-center text-center'>
+                            <h1 className='text-5xl'>Floor Plan</h1>
+                        </div>
+
+                        <Swiper
+                            modules={[Pagination, A11y, Autoplay]}
+                            spaceBetween={30}
+                            slidesPerView={3}
+                            slidesPerGroup={1}
+                            breakpoints={{
+                                0: { slidesPerView: 1, },
+                                640: { slidesPerView: 2, },
+                                1024: { slidesPerView: 3, },
+                            }}
+                            autoplay={{
+                                delay: 4000,
+                                pauseOnMouseEnter: true,
+                            }}
+                            pagination={{
+                                clickable: true,
+                                el: ".custom-pagination"
+                            }}
+                            draggable={true}
+                            loop={false}
+                            speed={500}
+                            onSwiper={(swiper) => (swiperRef.current = swiper)}
+                            className=""
+                        >
+
+                            {/* SLIDES CHANGE BUTTONS */}
+                            <button
+                                onClick={() => swiperRef.current?.slidePrev()}
+                                className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+                            >
+                                <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+                            </button>
+                            <button
+                                onClick={() => swiperRef.current?.slideNext()}
+                                className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+                            >
+                                <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
+                            </button>
+
+                            {content.floorPlans.map((image, index) =>
+                                <SwiperSlide
+                                    key={index}
+                                    className='pt-16 !overflow-auto'
+                                >
+                                    {/* <ModalImage
+                                        small={image}
+                                        large={image}
+                                        hideDownload={false}  // Ensures the modal allows image download
+                                        hideZoom={false}      // Ensures zoom functionality works
+                                        alt='floor diagram images'
+                                        className='h-full w-full object-contain aspect-square border'
+                                    /> */}
+                                    <img
+                                        src={image}
+                                        alt="Floor Plan"
+                                        className="h-full w-full object-contain aspect-square border cursor-pointer"
+                                        onClick={() => setSelectedImage(image)}
+                                    />
+                                </SwiperSlide>
+                            )}
+
+                            {/* paginations dots */}
+                            <div className="custom-pagination !mt-6 flex space-x-2 justify-center cursor-pointer "></div>
+                        </Swiper>
+
+                    </div>
+
+                    {/* Show Image Modal When Clicked */}
+                    {selectedImage && (
+                        <ImageModal
+                            image={selectedImage}
+                            alt="Floor Plan"
+                    
+                            onClose={() => setSelectedImage(null)}
+                        />
+                    )}
+
+                </div>
+
 
             </div>
 
