@@ -99,7 +99,7 @@ const OurProjects = () => {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className='w-full h-full object-center object-contain rounded-sm'
+                    className='w-full h-full object-center object-cover aspect-[6/8] rounded-sm'
                   />
                   <div className='w-full lg:hidden lg:group-hover:flex justify-center items-center group-hover:absolute bg-[rgba(0,0,0,0.4)] inset-0 rounded'>
                     <NavLink
@@ -175,7 +175,7 @@ const OurProjects = () => {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className='w-full h-full object-center object-contain rounded-sm'
+                    className='w-full h-full object-center object-cover aspect-[6/8] rounded-sm'
                   />
                   <div className='w-full lg:hidden lg:group-hover:flex justify-center items-center group-hover:absolute bg-[rgba(0,0,0,0.4)] inset-0 rounded'>
                     <NavLink

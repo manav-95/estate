@@ -89,7 +89,7 @@ const Navbar = () => {
               className='h-16 min-[425px]:h-10 w-full object-center object-cover'
             />
             </div>
-            <h1 className='hidden min-[425px]:block text-3xl uppercase font-bold'>VR Group</h1>
+            <h1 className='hidden min-[425px]:block text-3xl uppercase font-bold'>VIR Group</h1>
           </div>
           {/* <div className='flex flex-col min-[425px]:flex-row items-start justify-start space-x-2'>
             <h1 className='text-2xl min-[425px]:text-2xl sm:text-3xl lg:text-3xl xl:text-4xl uppercase font-semibold'>Amar</h1>
