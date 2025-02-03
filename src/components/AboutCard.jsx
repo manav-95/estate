@@ -14,19 +14,19 @@ const AboutCard = () => {
                             <img
                                 src={Vir_Enclave_Day}
                                 alt="Building image"
-                                className="h-full md:h-[700px] lg:h-full w-full object-cover object-center rounded-lg shadow-md"
+                                className="h-[400px] min-[425px]:h-[500px] sm:h-[650px] md:h-[700px] lg:h-full w-full object-fill aspect-square object-center rounded-lg shadow-md"
                             />
                         </div>
                     </div>
 
                     {/* For Content */}
-                    <div className="lg:col-span-7 flex flex-col items-start justify-center">
+                    <div className="lg:col-span-7">
                         {/* Title and Subtitle */}
-                        <div>
-                            <h1 className="uppercase text-3xl min-[425px]:text-4xl lg:text-4xl sm:text-center md:text-left font-bold text-gray-800 mb-2.5">
+                        <div className='flex flex-col items-start sm:items-center lg:items-start justify-center text-left sm:text-center lg:text-left'>
+                            <h1 className="uppercase text-2xl min-[425px]:text-4xl lg:text-4xl font-bold text-gray-800 mb-2.5">
                                 VR Group, Mumbai
                             </h1>
-                            <p className="uppercase text-xl sm:text-center md:text-left font-semibold text-gray-700 mb-2">
+                            <p className="uppercase text-lg sm:text-xl font-semibold text-gray-700 mb-2">
                                 Crafting Dream Spaces with Trust and Integrity
                             </p>
                         </div>

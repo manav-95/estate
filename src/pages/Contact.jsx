@@ -90,17 +90,17 @@ const Contact = () => {
 
             <div className='pt-6'>
               <h1 className='text-2xl font-medium'>Follow Us</h1>
-              <div className='flex items-center justify-start space-x-4 my-4 text-[#333]'>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#00d8ff]">
+              <div className='flex items-center justify-start space-x-2 my-4 text-[#333]'>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-white p-2.5 bg-gray-100 rounded hover:bg-[#333] transition-all duration-100 ease-in-out">
                   <FaFacebook />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#00d8ff]">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-white p-2.5 bg-gray-100 rounded hover:bg-[#333] transition-all duration-100 ease-in-out">
                   <FaTwitter />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#00d8ff]">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-white p-2.5 bg-gray-100 rounded hover:bg-[#333] transition-all duration-100 ease-in-out">
                   <FaInstagram />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#00d8ff]">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-white p-2.5 bg-gray-100 rounded hover:bg-[#333] transition-all duration-100 ease-in-out">
                   <FaLinkedin />
                 </a>
               </div>

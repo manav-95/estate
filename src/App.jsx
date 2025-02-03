@@ -22,6 +22,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/our-projects" element={<OurProjects />} />
           <Route path="/:name" element={<ProjectDetails />} />
+          
         </Route>
       </Routes>
     </Router>
