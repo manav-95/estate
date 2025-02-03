@@ -65,7 +65,7 @@ const RedevelopeWithUs = () => {
               <div className='w-full'>
                 <button
                   type='submit'
-                  className='bg-[#00d8ff] py-2.5 px-12 w-full md:w-fit uppercase text-lg font-semibold text-black rounded-xs'
+                  className='bg-[#00d8ff] py-2.5 px-12 w-full md:w-fit uppercase text-lg font-semibold text-black rounded-xs cursor-pointer'
                 >
                   Submit
                 </button>

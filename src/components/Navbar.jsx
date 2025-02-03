@@ -16,6 +16,7 @@ import Krishna_Koyna_Day from '../assets/featured-projects/completed-projects/kr
 import Global_Residency from '../assets/featured-projects/completed-projects/global-residency.jpeg'
 
 const Navbar = () => {
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -38,12 +39,12 @@ const Navbar = () => {
       categoryName: 'Under Construction',
       categoryTitle: 'Redevelopment Projects',
       items: [
-        { image: Vir_Enclave, title: 'Vir Enclave', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
+        { path: '/Vir%20Enclave', image: Vir_Enclave, title: 'Vir Enclave', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
         //{ image: Building1, title: 'Jamuna Mahal C.H.S.L', flats: '2 & 3 BHK Flats', location: 'SantaCruz East, Mumbai', },
         //{ image: Building1, title: 'Jamuna Mahal C.H.S.L', flats: '2 & 3 BHK Flats', location: 'SantaCruz East, Mumbai', },
       ],
       buttonText: 'view more',
-      path: '#',
+      path: '/our-projects',
     },
 
 
@@ -52,11 +53,11 @@ const Navbar = () => {
       categoryName: 'Upcoming',
       categoryTitle: 'Redevelopment Projects',
       items: [
-        { image: Building1, title: 'Krishna Koyna', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
+        { path: '/Krishna', image: Building1, title: 'Krishna Koyna', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
 
       ],
       buttonText: 'view more',
-      path: '#',
+      path: '/our-projects',
     },
 
 
@@ -65,12 +66,12 @@ const Navbar = () => {
       categoryName: 'Completed',
       categoryTitle: 'Redevelopment Projects',
       items: [
-        { image: Krishna_Koyna_Day, title: 'Krishna Koyna', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
-        { image: Global_Residency, title: 'Global Residency', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
+        { path: '/krishna', image: Krishna_Koyna_Day, title: 'Krishna Koyna', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
+        { path: '/global', image: Global_Residency, title: 'Global Residency', flats: '2 & 3 BHK Flats', location: 'Location Here, Mumbai', },
         //{ image: Building1, title: 'Jamuna Mahal C.H.S.L', flats: '2 & 3 BHK Flats', location: 'SantaCruz East, Mumbai', },
       ],
       buttonText: 'view more',
-      path: '#',
+      path: '/our-projects',
     },
 
   ]
@@ -83,11 +84,11 @@ const Navbar = () => {
           {/* Logo section  */}
           <div className='flex justify-items-start items-center space-x-2'>
             <div>
-            <img
-              src={Logo}
-              alt="logo"
-              className='h-16 min-[425px]:h-10 w-full object-center object-cover'
-            />
+              <img
+                src={Logo}
+                alt="logo"
+                className='h-16 min-[425px]:h-10 w-full object-center object-cover'
+              />
             </div>
             <h1 className='hidden min-[425px]:block text-3xl uppercase font-bold'>VIR Group</h1>
           </div>
@@ -163,27 +164,34 @@ const Navbar = () => {
                                 {/* Map through items in the category */}
                                 <ul className="space-y-4">
                                   {category.items.map((item, index) => (
-                                    <li key={index} className="group flex items-center justify-start space-x-4 pb-2">
-                                      {/* Image */}
-                                      <div className="flex-shrink-0">
-                                        {item.image ? (
-                                          <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="w-24 h-16 object-fill bg-gray-300"
-                                          />
-                                        ) : (
-                                          <div className="w-24 h-16 bg-gray-100"></div>
-                                        )}
-                                      </div>
+                                    <a
+                                      key={index}
+                                      href={item.path}
+                                      target='_blank'
+                                      className='group'
+                                    >
+                                      <li className="flex items-center justify-start space-x-4 pb-2">
+                                        {/* Image */}
+                                        <div className="flex-shrink-0">
+                                          {item.image ? (
+                                            <img
+                                              src={item.image}
+                                              alt={item.title}
+                                              className="w-24 h-16 object-fill bg-gray-300"
+                                            />
+                                          ) : (
+                                            <div className="w-24 h-16 bg-gray-200"></div>
+                                          )}
+                                        </div>
 
-                                      {/* Title and Details */}
-                                      <div className="flex flex-col uppercase">
-                                        <h4 className="text-sm text-gray-700 font-medium group-hover:underline">{item.title}</h4>
-                                        <p className="text-sm text-gray-600">{item.flats}</p>
-                                        <p className="text-sm text-gray-500">{item.location}</p>
-                                      </div>
-                                    </li>
+                                        {/* Title and Details */}
+                                        <div className="flex flex-col uppercase">
+                                          <h4 className="text-sm text-gray-700 font-medium group-hover:underline group-hover:text-[#00d8ff] transition-all duration-150 ease-in-out">{item.title}</h4>
+                                          <p className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-150 ease-in-out ">{item.flats}</p>
+                                          <p className="text-sm text-gray-500 group-hover:text-gray-900 transition-all duration-150 ease-in-out ">{item.location}</p>
+                                        </div>
+                                      </li>
+                                    </a>
 
                                   ))}
                                   <div className='w-full flex justify-start mb-2'>

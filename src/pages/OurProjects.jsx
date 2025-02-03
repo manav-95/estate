@@ -52,8 +52,12 @@ const OurProjects = () => {
         <div className='flex justify-center items-center text-center'>
           <h1 className='text-4xl font-medium uppercase'>Under Construction Redevelopment Projects</h1>
         </div>
+       
         {/* Navigation Buttons */}
         {/* <div className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 left-0 right-0 flex justify-between px-4 sm:px-8 transform -translate-y-1/2"> */}
+       
+        {underConstruction.length >= 4 && (
+          <>
         <button
           onClick={() => swiperUnderConstructionRef.current?.slidePrev()}
           className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
@@ -66,6 +70,9 @@ const OurProjects = () => {
         >
           <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
+        </>
+        )}
+
         {/* </div> */}
 
         <Swiper
@@ -95,7 +102,7 @@ const OurProjects = () => {
               <div
                 className='group hover:shadow-lg flex flex-col bg-white items-center justify-center p-4 rounded'
               >
-                <div className='w-full h-ful relative group'>
+                <div className='w-full h-full relative group'>
                   <img
                     src={item.image}
                     alt={item.name}
@@ -103,7 +110,7 @@ const OurProjects = () => {
                   />
                   <div className='w-full lg:hidden lg:group-hover:flex justify-center items-center group-hover:absolute bg-[rgba(0,0,0,0.4)] inset-0 rounded'>
                     <NavLink
-                      to={`/project/${item.name}`}
+                      to={`/${item.name}`}
                     >
                       <button className='w-full lg:w-fit bg-[rgba(0,0,0,0.8)] text-white py-2 min-[425px]:py-3 sm:py-2 md:py-3 px-6 cursor-pointer uppercase'>{item.buttonText}</button>
                     </NavLink>
@@ -128,20 +135,27 @@ const OurProjects = () => {
         <div className='flex justify-center items-center text-center'>
           <h1 className='text-4xl font-medium uppercase'>Completed Redevelopment Projects</h1>
         </div>
+
         {/* Navigation Buttons */}
         {/* <div className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 left-0 right-0 flex justify-between px-4 sm:px-8 transform -translate-y-1/2"> */}
-        <button
-          onClick={() => swiperCompletedRef.current?.slidePrev()}
-          className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-        >
-          <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-        </button>
-        <button
-          onClick={() => swiperCompletedRef.current?.slideNext()}
-          className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-        >
-          <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
-        </button>
+       
+        {completedConstruction.length >= 4 && (
+          <>
+            <button
+              onClick={() => swiperCompletedRef.current?.slidePrev()}
+              className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+            >
+              <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
+            <button
+              onClick={() => swiperCompletedRef.current?.slideNext()}
+              className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-3/7 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+            >
+              <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
+          </>
+        )}
+
         {/* </div> */}
 
         <Swiper
@@ -179,7 +193,7 @@ const OurProjects = () => {
                   />
                   <div className='w-full lg:hidden lg:group-hover:flex justify-center items-center group-hover:absolute bg-[rgba(0,0,0,0.4)] inset-0 rounded'>
                     <NavLink
-                      to={`/project/${item.name}`}
+                      to={`/${item.name}`}
                     >
                       <button className='w-full lg:w-fit bg-[rgba(0,0,0,0.8)] text-white py-2 min-[425px]:py-3 sm:py-2 md:py-3 px-6 cursor-pointer uppercase'>{item.buttonText}</button>
                     </NavLink>

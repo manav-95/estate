@@ -33,9 +33,8 @@ const ProjectDetails = () => {
             <div className='w-full'>
 
                 {/* HERO SECTION */}
-                <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 w-full h-full lg:h-[600px] bg-[#333333] text-white'>
+                {/* <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 w-full h-full lg:h-[600px] bg-[#333333] text-white'>
 
-                    {/* HERO INFORMATION */}
                     <div className='lg:col-span-5 xl:col-span-4 py-6 relative'>
                         <div className='flex justify-start lg:justify-center items-center h-full'>
                             <div className='lg:border-t-2 lg:border-r-2 px-10 py-8 rounded-xs'>
@@ -52,7 +51,7 @@ const ProjectDetails = () => {
 
                     </div>
 
-                    {/* HERO IMAGE */}
+                  
                     <div className='lg:col-span-7 xl:col-span-8 flex flex-col justify-center'>
                         <div className="h-full lg:h-[600px]">
                             <img
@@ -62,8 +61,20 @@ const ProjectDetails = () => {
                             />
                         </div>
                     </div>
+                    
 
+                </div> */}
+
+                <div className='w-full h-full min-[425px]:h-[650px] sm:h-[800px] lg:h-[800px] xl:h-[1000px] bg-[#333333] text-white'>
+                        <div className="h-full">
+                            <img
+                                src={content.image}
+                                alt='Hero image'
+                                className='w-full h-full object-cover min-[425px]:object-fill'
+                            />
+                        </div>
                 </div>
+
 
                 {/* DETAILS SECTION */}
                 <div className='w-full bg-[#26282a] text-white '>
@@ -159,6 +170,7 @@ const ProjectDetails = () => {
                     </div>
                 </div>
 
+
                 {/* AMINITIES SECTION */}
                 <div className='w-full bg-gray-200'>
                     <div className='max-w-7xl lg:max-w-6xl container mx-auto px-4 py-16'>
@@ -182,6 +194,7 @@ const ProjectDetails = () => {
                         </div>
                     </div>
                 </div>
+
 
                 {/* FLOOR PLAN SECTION */}
                 <div className='w-full bg-white'>
@@ -324,6 +337,7 @@ const ProjectDetails = () => {
                     </div>
                 </div>
 
+
                 {/* MAP LOCATION & PROXIMITIES SECTION */}
                 <div className='w-full bg-white'>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-0'>
@@ -357,6 +371,7 @@ const ProjectDetails = () => {
 
                     </div>
                 </div>
+
 
             </div>
         </>

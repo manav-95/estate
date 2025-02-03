@@ -29,7 +29,7 @@ const Hero = () => {
       image: Krishna_Koyna_Day,
       Flats: ['2 BHK', '3 BHK',],
       buttonText: 'view Details',
-      buttonLink: '#',
+      buttonLink: '/krishna',
     },
     {
       name: 'Global Residency',
@@ -38,7 +38,7 @@ const Hero = () => {
       image: Global_Residency,
       Flats: ['1 BHK', '2 BHK', '3 BHK'],
       buttonText: 'view Details',
-      buttonLink: '#',
+      buttonLink: '/global',
     },
     {
       name: 'Vir Enclave',
@@ -47,7 +47,7 @@ const Hero = () => {
       image: Vir_Enclave_Night,
       Flats: ['2 BHK', '4 BHK', '1 BHK'],
       buttonText: 'view Details',
-      buttonLink: '#',
+      buttonLink: '/Vir%20Enclave',
     },
   ]
 
@@ -55,9 +55,9 @@ const Hero = () => {
     <>
       <div className='w-full poppins-regular'>
         <Swiper
-          modules={[Autoplay, EffectCreative]} 
+          modules={[Autoplay, EffectCreative]}
           autoplay={{
-            delay: 8000, 
+            delay: 8000,
             disableOnInteraction: false,
 
           }}
@@ -92,9 +92,12 @@ const Hero = () => {
                         ))}
                       </div>
 
-                      <button className='bg-transparent uppercase py-1 px-4 mb-2 my-1 rounded-xs text-[#00d8ff] font-medium cursor-pointer border border-[#00d8ff] hover:bg-[#00d8ff] hover:text-black hover:border hover:border-transparent duration-150 transition-all ease-in-out'>
-                        {content.buttonText}
-                      </button>
+                      <a href={content.buttonLink} target='_blank'>
+                        <button className='bg-transparent uppercase py-1 px-4 mb-2 my-1 rounded-xs text-[#00d8ff] font-medium cursor-pointer border border-[#00d8ff] hover:bg-[#00d8ff] hover:text-black hover:border hover:border-transparent duration-150 transition-all ease-in-out'>
+                          {content.buttonText}
+                        </button>
+                      </a>
+
                     </div>
                   </div>
                   <div className='absolute bottom-0 lg:bottom-4 right-2 lg:right-0 flex items-center justify-center space-x-2.5 lg:space-x-4'>
@@ -105,8 +108,8 @@ const Hero = () => {
                 </div>
                 {/* For Image That Contain informations */}
                 <div className='lg:col-span-7 xl:col-span-8 flex flex-col justify-center'>
-                <div className="h-[400px] sm:h-[700px] md:h-[800px] lg:h-[540px] xl:h-[600px]">
-                <img
+                  <div className="h-[400px] sm:h-[700px] md:h-[800px] lg:h-[540px] xl:h-[600px]">
+                    <img
                       src={content.image}
                       alt='Hero image'
                       className='w-full h-full object-fill lg:object-fill  object-top'
