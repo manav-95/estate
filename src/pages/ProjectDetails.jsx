@@ -1,23 +1,23 @@
-import React, { useRef, useState } from 'react'
+// React Imports
+import React, { useRef, useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 
-import ImageModal from '../components/ImageModal';
-
-import ModalImage from "react-modal-image";
-
-
+// Data
 import underConstruction from '../data/UnderConstructionData';
 
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
-
-
-import { FaLocationDot } from "react-icons/fa6";
-
+// Swiper React
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, A11y, Autoplay } from "swiper/modules"
 
 import "swiper/css"
 import "swiper/css/pagination"
+
+// Components and Hooks Imports
+import ImageModal from '../components/ImageModal';
+
+// Icons
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 
 
 const ProjectDetails = () => {
@@ -216,18 +216,22 @@ const ProjectDetails = () => {
                         >
 
                             {/* SLIDES CHANGE BUTTONS */}
-                            <button
-                                onClick={() => swiperRef.current?.slidePrev()}
-                                className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-                            >
-                                <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-                            </button>
-                            <button
-                                onClick={() => swiperRef.current?.slideNext()}
-                                className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
-                            >
-                                <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
-                            </button>
+                            {content.floorPlans.length >= 4 && (
+                                <>
+                                    <button
+                                        onClick={() => swiperRef.current?.slidePrev()}
+                                        className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 left-2  transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+                                    >
+                                        <FaAngleLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+                                    </button>
+                                    <button
+                                        onClick={() => swiperRef.current?.slideNext()}
+                                        className="absolute top-3/5 min-[425px]:top-1/2 sm:top-1/2 lg:top-4/8 right-2 transform -translate-y-1/2 bg-[#333] text-white z-10 cursor-pointer p-4 sm:p-3 md:p-4 rounded-full transition-all duration-150 ease-in-out"
+                                    >
+                                        <FaAngleRight className="h-5 w-5 sm:h-6 sm:w-6" />
+                                    </button>
+                                </>
+                            )}
 
                             {content.floorPlans.map((image, index) =>
                                 <SwiperSlide
@@ -262,18 +266,99 @@ const ProjectDetails = () => {
                         <ImageModal
                             image={selectedImage}
                             alt="Floor Plan"
-                    
                             onClose={() => setSelectedImage(null)}
                         />
                     )}
 
                 </div>
 
+                {/* GALLARY SECTION */}
+                <div className='w-full bg-gray-200'>
+                    <div className='max-w-7xl container mx-auto px-4 py-14'>
+                        <div className='flex justify-center items-center text-center'>
+                            <h1 className='text-5xl'>Gallary</h1>
+                        </div>
+
+                        <Swiper
+                            modules={[Pagination, A11y, Autoplay]}
+                            spaceBetween={30}
+                            slidesPerView={3}
+                            slidesPerGroup={1}
+                            breakpoints={{
+                                0: { slidesPerView: 1, },
+                                640: { slidesPerView: 2, },
+                                1024: { slidesPerView: 3, },
+                            }}
+                            autoplay={{
+                                delay: 4000,
+                                pauseOnMouseEnter: true,
+                            }}
+                            pagination={{
+                                clickable: true,
+                                el: ".custom-pagination"
+                            }}
+                            draggable={true}
+                            loop={false}
+                            speed={500}
+                            className=""
+                        >
+
+                            {content.gallary.map((image, index) =>
+                                <SwiperSlide
+                                    key={index}
+                                    className='pt-16 !overflow-auto'
+                                >
+
+                                    <img
+                                        src={image}
+                                        alt="Floor Plan"
+                                        className="h-full w-full object-fill aspect-[3/4]"
+                                    />
+                                </SwiperSlide>
+                            )}
+
+                            {/* paginations dots */}
+                            <div className="custom-pagination !mt-8 flex space-x-2 justify-center cursor-pointer "></div>
+                        </Swiper>
+
+                    </div>
+                </div>
+
+                {/* MAP LOCATION & PROXIMITIES SECTION */}
+                <div className='w-full bg-white'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-0'>
+
+                        {/* FOR MAP */}
+                        <div
+                            dangerouslySetInnerHTML={{ __html: content.iframe }}
+                            className="h-[400px] md:h-[500px] lg:h-[600px] w-full"
+                        />
+
+
+                        {/* FOR LOCATION & PROXIMITIES */}
+                        <div className='py-10 px-6 md:px-16'>
+                            <div className='flex justify-start items-center text-center'>
+                                <h1 className='text-2xl min-[425px]:text-4xl xl:text-5xl font-medium lg:font-normal'>Location & Proximities</h1>
+                            </div>
+                            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-y-9 py-10'>
+                                {content.proximities.map((proximity) => {
+                                    const ProximityIcon = proximity.icon;
+                                    return (
+                                        <>
+                                            <div className='flex items-center justify-start'>
+                                                <ProximityIcon className='h-5 w-5 flex-shrink-0 mr-6 text-[#333]' />
+                                                <p className='text-base'>{proximity.distanceAway} : {proximity.name}</p>
+                                            </div>
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
-
-
-
         </>
     )
 }
