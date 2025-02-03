@@ -47,7 +47,7 @@ const FinancialReporting = () => {
                       {/* FY 2023-24 */}
                       <div className="mb-6">
                         <h1 className="text-lg mb-2">FY 2023-24</h1>
-                        <a href="/public/documents/dummy.pdf" target='_blank'>
+                        <a href="documents/dummy.pdf" target='_blank'>
                           <button className="flex items-center w-full sm:w-auto text-sm py-2.5 px-4 border rounded-xs text-blue-900 cursor-pointer">
                             <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
                             AGM Notice - FY 2023-24
@@ -59,13 +59,13 @@ const FinancialReporting = () => {
                       <div>
                         <h1 className="text-lg mb-2">FY 2022-23</h1>
                         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-                          <a href="/public/documents/dummy.pdf" target='_blank'>
+                          <a href="documents/dummy.pdf" target='_blank'>
                             <button className="flex items-center w-full sm:w-auto py-2.5 px-4 border rounded-xs text-sm text-blue-900 cursor-pointer">
                               <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
                               Auditors Reports on Financial Statements - FY 2022-23
                             </button>
                           </a>
-                          <a href="/public/documents/dummy.pdf" target='_blank'>
+                          <a href="documents/dummy.pdf" target='_blank'>
                             <button className="flex items-center w-full sm:w-auto py-2.5 px-4 border rounded-xs text-sm text-blue-900 cursor-pointer">
                               <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
                               Standalone Financial Statements - FY 2022-23
@@ -81,7 +81,7 @@ const FinancialReporting = () => {
                 {/* ANNUAL REPORTING */}
                 {button.id === 'Annual Reporting' && (
                   <> <div className="mb-6">
-                    <a href="/public/documents/dummy.pdf" target='_blank'>
+                    <a href="documents/dummy.pdf" target='_blank'>
                       <button className="flex items-center w-full sm:w-auto text-sm py-2.5 px-4 border rounded-xs text-blue-900 cursor-pointer">
                         <BsFiletypePdf className="h-5 w-5 mr-3 flex-shrink-0" />
                         Annual Report - FY 2022-23
